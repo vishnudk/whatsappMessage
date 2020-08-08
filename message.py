@@ -14,7 +14,8 @@ import time
 
 
 def function():
-    contact = 'Sai'
+    contact = input('Enter Name of victim : ')
+    msg = input('Enter message : ')
     driver = webdriver.Chrome('D:\downloads\chromedriver')
     driver.get('https://web.whatsapp.com/')
     # driver.get('https://www.google.com')
@@ -25,9 +26,12 @@ def function():
     time.sleep(5)
     button.send_keys(Keys.ENTER)
     time.sleep(5)
+    # while True:
+        # messageBar = driver.find_element_by_xpath("//div[@class='_3uMse']")
+        # messageBar.send_keys(msg,Keys.ENTER)
     while True:
-        messageBar = driver.find_element_by_xpath("//div[@class='_3uMse']")
-        messageBar.send_keys('test123',Keys.ENTER)
+        messageBar = driver.find_element_by_xpath("//div[@class='_3uMse _118Ah']")
+        messageBar.send_keys(msg,Keys.ENTER)
     time.sleep(100)
 
 
