@@ -1,0 +1,35 @@
+
+import requests as res
+import bs4
+# from selenium import webdriver
+# from selenium.webdriver.common.keys import Keys
+# import time
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+import time
+
+
+def function():
+    contact = 'Sai'
+    driver = webdriver.Chrome('D:\downloads\chromedriver')
+    driver.get('https://web.whatsapp.com/')
+    # driver.get('https://www.google.com')
+    # button = driver.find_element_by_class_name('_3FRCZ copyable-text selectable-text')
+    time.sleep(20)
+    button=driver.find_element_by_xpath("//div[@class='_3FRCZ copyable-text selectable-text']")
+    button.send_keys(contact)
+    time.sleep(5)
+    button.send_keys(Keys.ENTER)
+    time.sleep(5)
+    while True:
+        messageBar = driver.find_element_by_xpath("//div[@class='_3uMse']")
+        messageBar.send_keys('test123',Keys.ENTER)
+    time.sleep(100)
+
+
+if __name__ == "__main__":
+    function()
